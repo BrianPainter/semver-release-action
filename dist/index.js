@@ -35350,7 +35350,7 @@ async function getMostRecentRepoTag() {
   const prefix = core.getInput('prefix', {required: false}) || ""
   const octokit = github.getOctokit(token)
 
-  const { data: refs } = await octokit.git.listMatchingRefs({
+  const { data: refs } = await octokit.push.git.listMatchingRefs({
     ...github.context.repo,
     ref: 'tags/'
   })
